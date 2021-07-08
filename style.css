@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --color-left-side: rgba(70,70,260,0.7);
+  --color-right-side: rgba(59, 236, 222, 0.7);
+  --hover-left-side-color: rgba(185, 114, 114, 1);
+  --hover-right-side-color: rgba(55, 90, 206, 1);
+  --width-hover:75%;
+  --width-other:25%;
+
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: cadetblue;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.container{
+  display: flex;
+  position: relative;
+ 
+
+}
+
+.split{
+  height: 100vh;
+  width: 50%;
+  position: absolute;
+}
+
+.split.left{
+  left: 0;
+  top: 0;
+  background: url('ps.jpg');
+  background-size: cover;
+}
+
+.split.left::before{
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-left-side);
+
+
+}
+
+
+.split.right::before{
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-right-side);
+}
+
+.split.right{
+  right: 0;
+  top: 0;
+  background:url('xbox.jpg');
+  background-size: cover;
+}
+.split.left, .split.right{
+  transition: all 1s ease-in-out;
+
+}
+
+.hover-left .left {
+  width: var(--width-hover);
+
+}
+
+.hover-left .right {
+  width: var(--width-other);
+
+}
+
+.hover-right .right {
+  width: var(--width-hover);
+
+}
+
+.hover-right .left {
+  width: var(--width-other);
+
+}
+
+
+h1{
+  font-size: 4rem;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+}
+
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  border: solid 0.2rem;
+  border-color: white;
+  font-size: 20px;
+  padding: 10px 40px;
+  color: aliceblue;
+
+}
+
+.container .split.left .btn:hover{
+  background-color: var(--hover-left-side-color);
+  border-color: var(--hover-left-side-color);
+}
+
+.container .split.right .btn:hover{
+  background-color: var(--hover-right-side-color);
+  border-color: var(--hover-right-side-color);
+}
+@media(max-width: 800px){
+  h1{
+    font-size: 1rem;
+  }
+
+  .btn{
+    width: 5rem;
+  }
+}
